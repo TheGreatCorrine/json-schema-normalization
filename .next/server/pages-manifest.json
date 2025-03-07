@@ -2,8 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/introduction": "pages/introduction.js",
-  "/specification": "pages/specification.js",
   "/get-started": "pages/get-started.js",
-  "/reference": "pages/reference.js"
+  "/introduction": "pages/introduction.js",
+  "/specification": "pages/specification.js"
 }

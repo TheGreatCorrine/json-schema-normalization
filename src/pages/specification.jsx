@@ -146,6 +146,34 @@ export default function Specification() {
               normalizing an already normalized schema should produce the same result.
             </p>
           </CollapsibleSection>
+          
+          <CollapsibleSection title="11. Common Use Cases">
+            <p className="mb-3">
+              JSON Schema normalization addresses several common use cases:
+            </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>Schema comparison for semantic equivalence</li>
+              <li>Schema versioning and change detection</li>
+              <li>Schema optimization for validation performance</li>
+              <li>Schema documentation generation</li>
+              <li>Schema-based code generation</li>
+            </ul>
+          </CollapsibleSection>
+          
+          <CollapsibleSection title="12. Potential Normalization Rulesets">
+            <p className="mb-3">
+              Different normalization goals may require different rulesets:
+            </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li><strong>Minimal:</strong> Basic property ordering and type normalization</li>
+              <li><strong>Standard:</strong> Comprehensive normalization for most use cases</li>
+              <li><strong>Strict:</strong> Maximum normalization with all optimizations</li>
+              <li><strong>Custom:</strong> Tailored rulesets for specific applications</li>
+            </ul>
+            <p className="mt-3">
+              Each ruleset can be configured to include or exclude specific normalization steps based on the requirements of the application.
+            </p>
+          </CollapsibleSection>
         </div>
       </div>
     </Layout>
