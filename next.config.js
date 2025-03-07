@@ -17,6 +17,20 @@ const nextConfig = {
   publicRuntimeConfig: {
     basePath: process.env.NODE_ENV === 'production' ? '/json-schema-demo' : '',
   },
+  // 添加特定的主页处理
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+      '/': { page: '/' },
+      '/introduction': { page: '/introduction' },
+      '/get-started': { page: '/get-started' },
+      '/reference': { page: '/reference' },
+      '/specification': { page: '/specification' },
+      '/normalization': { page: '/normalization' },
+    };
+  },
   webpack(config) {
     config.resolve.alias = {
       ...config.resolve.alias,
