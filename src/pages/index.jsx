@@ -1,20 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Layout from '../components/layout/Layout';
 
 export default function Home() {
-  const [debug, setDebug] = useState({});
-  
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setDebug({
-        pathname: window.location.pathname,
-        href: window.location.href,
-        origin: window.location.origin,
-        basePath: process.env.NEXT_PUBLIC_BASE_PATH || '/json-schema-demo',
-      });
-    }
-  }, []);
-
   return (
     <Layout>
       <div className="max-w-4xl mx-auto">
@@ -23,12 +10,6 @@ export default function Home() {
           <p className="text-xl text-gray-600">
             A tool for standardizing JSON Schema documents into a canonical form
           </p>
-        </div>
-        
-        {/* 调试信息 */}
-        <div className="bg-gray-100 p-4 rounded-md mb-8">
-          <h2 className="text-lg font-semibold mb-2">Debug Info:</h2>
-          <pre>{JSON.stringify(debug, null, 2)}</pre>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
