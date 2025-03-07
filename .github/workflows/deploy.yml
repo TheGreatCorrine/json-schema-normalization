@@ -28,10 +28,10 @@ jobs:
           npm run build || (echo "Build failed" && exit 1)
           echo "Build completed successfully"
 
-      - name: Add .nojekyll file
+      - name: Add .nojekyll file and copy public files
         run: |
           touch out/.nojekyll
-          cp README.md out/
+          cp -r public/* out/ || true
 
       - name: Debug output directory
         run: ls -la out/

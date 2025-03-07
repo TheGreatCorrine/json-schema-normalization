@@ -14,7 +14,14 @@ const Navbar = ({ onGuideClick }) => {
         <div className="grid grid-cols-3 items-center h-20">
           <div className="flex items-center">
             <div className="flex items-center navbar-logo">
-              <img src="/logo.png" alt="JSON Schema" style={{ height: '40px', width: 'auto' }} />
+              <img 
+                src={process.env.NODE_ENV === 'production' 
+                  ? '/json-schema-demo/logo.png'  // 生产环境路径
+                  : '/logo.png'                   // 开发环境路径
+                } 
+                alt="JSON Schema" 
+                style={{ height: '40px', width: 'auto' }} 
+              />
             </div>
           </div>
           
