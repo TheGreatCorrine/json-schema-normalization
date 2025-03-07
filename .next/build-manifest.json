@@ -22,6 +22,21 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/get-started": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/get-started.js"
+    ],
+    "/introduction": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/introduction.js"
+    ],
+    "/reference": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/reference.js"
+    ],
     "/specification": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
