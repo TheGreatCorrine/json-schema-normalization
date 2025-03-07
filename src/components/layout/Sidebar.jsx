@@ -2,10 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-const NavItem = ({ href, icon, title, isActive }) => {
+const NavItem = ({ href, icon, title, isActive, className }) => {
   return (
     <Link href={href}>
-      <div className={`flex items-center px-4 py-2 my-1 rounded-md ${isActive ? 'bg-blue-50 text-blue-700 font-medium' : 'hover:bg-gray-50 text-gray-700'}`}>
+      <div className={`flex items-center px-4 py-2 my-1 rounded-md ${isActive ? 'bg-blue-50 text-blue-700 font-medium' : 'hover:bg-gray-50 text-gray-700'} ${className || ''}`}>
         <span className="mr-3 text-lg">{icon}</span>
         <span>{title}</span>
       </div>
@@ -69,12 +69,13 @@ const Sidebar = () => {
       <NavItem 
         href="/normalization" 
         icon={
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
           </svg>
         } 
         title="Normalization" 
         isActive={router.pathname === '/normalization'}
+        className="normalization-link"
       />
     </div>
   );

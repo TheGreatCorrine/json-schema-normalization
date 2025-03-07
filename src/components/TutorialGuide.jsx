@@ -6,7 +6,7 @@ const TutorialGuide = ({ isOpen, onClose }) => {
   const [steps, setSteps] = useState([]);
 
   useEffect(() => {
-    // 添加延迟以确保所有元素都已渲染
+    // Add delay to ensure all elements are rendered
     if (isOpen) {
       const timer = setTimeout(() => {
         setSteps([
@@ -17,22 +17,22 @@ const TutorialGuide = ({ isOpen, onClose }) => {
             disableBeacon: true,
           },
           {
-            target: 'a[href*="introduction"]', // 使用更宽松的选择器
+            target: 'a[href*="introduction"]', // Use a more flexible selector
             content: 'The Introduction section briefly explains the background of the project, what JSON Schema Normalizer does, and why it\'s important.',
             placement: 'right',
           },
           {
-            target: 'a[href*="get-started"]', // 使用更宽松的选择器
+            target: 'a[href*="get-started"]', // Use a more flexible selector
             content: 'The Get Started guide (not yet completed) will show you how to install and use the Python library in your projects. You can skip it for now.',
             placement: 'right',
           },
           {
-            target: 'a[href*="reference"]', // 使用更宽松的选择器
+            target: 'a[href*="reference"]', // Use a more flexible selector
             content: 'This part is not yet completed, you can skip it for now.',
             placement: 'right',
           },
           {
-            target: 'a[href*="specification"]', // 使用更宽松的选择器
+            target: 'a[href*="specification"]', // Use a more flexible selector
             content: (
               <div>
                 The Specification section explains the normalization rules and standards in detail. <span style={{ fontWeight: 'bold' }}>Definitely check this part as it completes the qualification tasks.</span>
@@ -41,23 +41,24 @@ const TutorialGuide = ({ isOpen, onClose }) => {
             placement: 'right',
           },
           {
-            target: 'a[href*="normalization"]', // 使用更宽松的选择器
+            target: '.normalization-link', // Use class name selector
             content: 'After reading the specification section, you can try the online version of the Normalization tool here.',
             placement: 'right',
+            spotlightClicks: false,
           },
           {
-            target: 'button:nth-of-type(1)', // 使用更简单的选择器
+            target: 'button:nth-of-type(1)', // Use a simpler selector
             content: 'If you need to revisit this tutorial at any time, just click the Guide button here!',
             placement: 'bottom',
           },
           {
-            target: 'button:nth-of-type(2)', // 使用更简单的选择器
+            target: 'button:nth-of-type(2)', // Use a simpler selector
             content: 'Welcome Julian and other contributors! Please feel free to provide any suggestions or feedback to Corrine on this qualification task.',
             placement: 'bottom',
           },
         ]);
         setRunTour(true);
-      }, 1000); // 增加延迟时间
+      }, 1000); // Increase delay time
       
       return () => clearTimeout(timer);
     }
@@ -66,14 +67,14 @@ const TutorialGuide = ({ isOpen, onClose }) => {
   const handleJoyrideCallback = (data) => {
     const { status, type } = data;
     
-    console.log('Joyride callback:', type, status); // 添加调试日志
+    console.log('Joyride callback:', type, status); // Add debug log
     
-    // 当教程结束或被跳过时
+    // When the tutorial is finished or skipped
     if ([STATUS.FINISHED, STATUS.SKIPPED].includes(status)) {
       setRunTour(false);
       onClose();
       
-      // 保存教程完成状态到 localStorage
+      // Save tutorial completion status to localStorage
       localStorage.setItem('tutorialCompleted', 'true');
     }
   };
@@ -88,7 +89,7 @@ const TutorialGuide = ({ isOpen, onClose }) => {
       showProgress
       showSkipButton
       steps={steps}
-      disableScrolling={false} // 禁用自动滚动
+      disableScrolling={false} // Disable automatic scrolling
       styles={{
         options: {
           zIndex: 10000,
