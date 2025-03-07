@@ -3,21 +3,21 @@ const path = require('path');
 
 const nextConfig = {
   reactStrictMode: true,
-  basePath: process.env.NODE_ENV === 'production' ? '/json-schema-demo' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/json-schema-demo/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/json-schema-normalization-demo' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/json-schema-normalization-demo/' : '',
   images: {
     unoptimized: true,
   },
   output: 'export',
-  // 确保没有使用不兼容静态导出的功能
+  // Ensure no features incompatible with static export are used
   experimental: {
-    // 禁用可能与静态导出不兼容的实验性功能
+    // Disable experimental features that might be incompatible with static export
   },
-  // 添加公共路径配置
+  // Add public path configuration
   publicRuntimeConfig: {
-    basePath: process.env.NODE_ENV === 'production' ? '/json-schema-demo' : '',
+    basePath: process.env.NODE_ENV === 'production' ? '/json-schema-normalization-demo' : '',
   },
-  // 添加特定的主页处理
+  // Add specific homepage handling
   exportPathMap: async function (
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }

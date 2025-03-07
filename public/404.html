@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   <title>Redirecting...</title>
   <script>
-    // 单页应用重定向脚本
+    // Single page application redirect script
     const segment = window.location.pathname.split('/').pop();
     const redirectUrl = segment ? 
-      window.location.origin + '/json-schema-demo/' + segment :
-      window.location.origin + '/json-schema-demo/introduction';
+      window.location.origin + '/json-schema-normalization-demo/' + segment :
+      window.location.origin + '/json-schema-normalization-demo/introduction';
     
     window.location.replace(redirectUrl);
   </script>
 </head>
 <body>
-  <p>If you are not redirected automatically, follow <a href="/json-schema-demo">this link</a>.</p>
+  <p>If you are not redirected automatically, follow <a href="/json-schema-normalization-demo">this link</a>.</p>
 </body>
 </html> 
