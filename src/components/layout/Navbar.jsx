@@ -54,7 +54,7 @@ const Navbar = ({ onGuideClick }) => {
             </button>
             
             <a 
-              href="https://github.com/TheGreatCorrine/json-schema-demo" 
+              href="https://github.com/TheGreatCorrine/json-schema-normalization-demo" 
               className="p-2 text-gray-700 hover:text-[#0c4da2] transition-colors github-link"
               target="_blank" 
               rel="noopener noreferrer"

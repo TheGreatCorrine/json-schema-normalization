@@ -28,11 +28,12 @@ jobs:
           npm run build || (echo "Build failed" && exit 1)
           echo "Build completed successfully"
 
-      - name: Add .nojekyll file and copy public files
+      - name: Add .nojekyll file and prepare static files
         run: |
           touch out/.nojekyll
           cp -r public/* out/ || true
-
+          echo "json-schema-normalization-demo.thegreatcorrine.github.io" > out/CNAME
+          
       - name: Debug output directory
         run: ls -la out/
 
