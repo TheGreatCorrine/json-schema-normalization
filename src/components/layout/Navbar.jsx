@@ -5,7 +5,7 @@ const Navbar = ({ onGuideClick }) => {
   // Remove tutorial record clearing function
   // Add feedback functionality
   const handleFeedback = () => {
-    window.open('https://github.com/TheGreatCorrine/json-schema-demo/issues/new?title=Feedback%20on%20JSON%20Schema%20Normalizer&labels=feedback', '_blank');
+    window.open('https://github.com/TheGreatCorrine/json-schema-normalization-demo/issues/new?title=Feedback%20on%20JSON%20Schema%20Normalizer&labels=feedback', '_blank');
   };
 
   return (
@@ -16,8 +16,8 @@ const Navbar = ({ onGuideClick }) => {
             <div className="flex items-center navbar-logo">
               <img 
                 src={process.env.NODE_ENV === 'production' 
-                  ? '/json-schema-demo/logo.png'  // 生产环境路径
-                  : '/logo.png'                   // 开发环境路径
+                  ? '/json-schema-normalization-demo/logo.png'  // Production path
+                  : '/logo.png'                                 // Development path
                 } 
                 alt="JSON Schema" 
                 style={{ height: '40px', width: 'auto' }} 
