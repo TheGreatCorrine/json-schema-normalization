@@ -5,15 +5,18 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '16'
 
@@ -21,10 +24,30 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build && npm run export
+        run: |
+          npm run build || (echo "Build failed" && exit 1)
+          echo "Build completed successfully"
+
+      - name: Add .nojekyll file
+        run: |
+          touch out/.nojekyll
+          cp README.md out/
+
+      - name: Debug output directory
+        run: ls -la out/
+
+      - name: Check build output
+        run: |
+          if [ -f "out/index.html" ]; then
+            echo "index.html exists"
+          else
+            echo "index.html does not exist - build may have failed"
+            exit 1
+          fi
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: out 
+          folder: out
+          clean: true 

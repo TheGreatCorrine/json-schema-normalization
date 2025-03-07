@@ -3,12 +3,20 @@ const path = require('path');
 
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',
+  basePath: process.env.NODE_ENV === 'production' ? '/json-schema-demo' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/json-schema-demo/' : '',
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
-  // 如果您的网站不是部署在域名根目录，请设置 basePath
-  // basePath: '/json-schema-normalization',
+  output: 'export',
+  // 确保没有使用不兼容静态导出的功能
+  experimental: {
+    // 禁用可能与静态导出不兼容的实验性功能
+  },
+  // 添加公共路径配置
+  publicRuntimeConfig: {
+    basePath: process.env.NODE_ENV === 'production' ? '/json-schema-demo' : '',
+  },
   webpack(config) {
     config.resolve.alias = {
       ...config.resolve.alias,
