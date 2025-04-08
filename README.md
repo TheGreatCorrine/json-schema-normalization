@@ -1,4 +1,4 @@
-# JSON Schema Normalization Demo
+# JSON Schema Normalization
 
 Website: [https://thegreatcorrine.github.io/json-schema-normalization-demo/](https://thegreatcorrine.github.io/json-schema-normalization-demo/)
 
